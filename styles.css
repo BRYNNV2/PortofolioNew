@@ -696,7 +696,34 @@ a{color:inherit;text-decoration:none}
 }
 
 /* ===== CONTACT ===== */
-.contact{text-align:center;border-top:1px solid var(--line)}
+.contact{text-align:center;border-top:1px solid var(--line);position:relative;z-index:2;}
+.contact-robot-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: -1rem;
+  position: relative;
+  z-index: 5;
+  perspective: 1000px;
+}
+.contact-robot-wrapper {
+  animation: floatRobot 6s ease-in-out infinite;
+}
+.contact-robot {
+  width: 260px;
+  height: 260px;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  pointer-events: auto;
+}
+@keyframes floatRobot {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
 .contact-title{font-size:clamp(3rem,12vw,9rem);font-weight:700;text-transform:uppercase;letter-spacing:-.03em;line-height:1;margin:.5rem 0 1.5rem}
 .contact-lead{color:var(--muted);max-width:42ch;margin:0 auto 2.5rem;font-size:1.1rem}
 .contact-actions{display:flex;flex-direction:column;align-items:center;gap:1.5rem}

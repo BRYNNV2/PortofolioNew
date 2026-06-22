@@ -231,3 +231,154 @@ panelPlayToggle.addEventListener('click', () => {
   }
   updatePlayerUI();
 });
+
+// ===== 3D ROBOT RENDERER (Three.js) =====
+const canvasContainer = document.getElementById('robot-3d-canvas-container');
+const contactSect = document.getElementById('contact');
+
+if (canvasContainer && contactSect) {
+  // Scene, Camera, Renderer
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+  camera.position.set(0, 0, 4.2);
+
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  renderer.setSize(260, 260);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  canvasContainer.appendChild(renderer.domElement);
+
+  // Lighting
+  const ambientLight = new THREE.AmbientLight(0x333344, 2.5);
+  scene.add(ambientLight);
+
+  const keyLight = new THREE.DirectionalLight(0xffffff, 3.0);
+  keyLight.position.set(5, 5, 5);
+  scene.add(keyLight);
+
+  const purpleLight = new THREE.PointLight(0xa855f7, 12, 15);
+  purpleLight.position.set(-2.5, 1.5, 2);
+  scene.add(purpleLight);
+
+  const pinkLight = new THREE.PointLight(0xec4899, 12, 15);
+  pinkLight.position.set(2.5, -1.5, 2);
+  scene.add(pinkLight);
+
+  // Robot Model Group
+  const robotGroup = new THREE.Group();
+  const headGroup = new THREE.Group();
+
+  // Head Outer Frame (Lighter metallic grey for better contrast)
+  const headGeo = new THREE.BoxGeometry(1.5, 1.0, 0.7);
+  const headMat = new THREE.MeshPhysicalMaterial({
+    color: 0x4a4a50,
+    metalness: 0.95,
+    roughness: 0.15,
+    clearcoat: 1.0,
+    clearcoatRoughness: 0.05,
+    reflectivity: 0.9
+  });
+  const headMesh = new THREE.Mesh(headGeo, headMat);
+  headGroup.add(headMesh);
+
+  // Face Screen (Dark purple neon faceplate)
+  const screenGeo = new THREE.BoxGeometry(1.3, 0.8, 0.05);
+  const screenMat = new THREE.MeshPhysicalMaterial({
+    color: 0x06010b,
+    metalness: 0.8,
+    roughness: 0.05,
+    emissive: 0x14042b,
+    emissiveIntensity: 0.6
+  });
+  const screenMesh = new THREE.Mesh(screenGeo, screenMat);
+  screenMesh.position.set(0, 0, 0.351);
+  headGroup.add(screenMesh);
+
+  // Glowing Screen Rim Wireframe
+  const borderGeo = new THREE.BoxGeometry(1.32, 0.82, 0.02);
+  const borderMat = new THREE.MeshBasicMaterial({
+    color: 0xa855f7,
+    wireframe: true
+  });
+  const borderMesh = new THREE.Mesh(borderGeo, borderMat);
+  borderMesh.position.set(0, 0, 0.355);
+  headGroup.add(borderMesh);
+
+  // Eyes (Emissive glowing white spheres)
+  const eyeGeo = new THREE.SphereGeometry(0.13, 32, 32);
+  const eyeMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+  
+  const eyeLeft = new THREE.Mesh(eyeGeo, eyeMat);
+  const eyeRight = new THREE.Mesh(eyeGeo, eyeMat);
+  
+  // Set initial position
+  eyeLeft.position.set(-0.32, 0.02, 0.36);
+  eyeRight.position.set(0.32, 0.02, 0.36);
+  
+  headGroup.add(eyeLeft);
+  headGroup.add(eyeRight);
+
+  // Neck
+  const neckGeo = new THREE.CylinderGeometry(0.12, 0.16, 0.5, 32);
+  const neckMat = new THREE.MeshPhysicalMaterial({
+    color: 0x2a2a2e,
+    metalness: 0.95,
+    roughness: 0.15
+  });
+  const neckMesh = new THREE.Mesh(neckGeo, neckMat);
+  neckMesh.position.set(0, -0.65, 0);
+  robotGroup.add(neckMesh);
+
+  // Shoulders Base
+  const baseGeo = new THREE.CylinderGeometry(0.24, 0.3, 0.2, 32);
+  const baseMesh = new THREE.Mesh(baseGeo, neckMat);
+  baseMesh.position.set(0, -0.95, 0);
+  robotGroup.add(baseMesh);
+
+  // Add all to scene
+  headGroup.position.set(0, 0.05, 0);
+  robotGroup.add(headGroup);
+  scene.add(robotGroup);
+
+  // Mouse Coordinates Tracking
+  let targetMouseX = 0, targetMouseY = 0;
+  let currentMouseX = 0, currentMouseY = 0;
+
+  contactSect.addEventListener('mousemove', (e) => {
+    const rect = contactSect.getBoundingClientRect();
+    targetMouseX = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    targetMouseY = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
+  });
+
+  contactSect.addEventListener('mouseleave', () => {
+    targetMouseX = 0;
+    targetMouseY = 0;
+  });
+
+  // Render & Animation Loop
+  const animate = () => {
+    requestAnimationFrame(animate);
+
+    // Lerp mouse coordinates
+    currentMouseX += (targetMouseX - currentMouseX) * 0.08;
+    currentMouseY += (targetMouseY - currentMouseY) * 0.08;
+
+    // Bobbing float animation
+    const time = Date.now() * 0.0015;
+    robotGroup.position.y = Math.sin(time) * 0.1;
+
+    // Rotate head based on mouse coordinates
+    headGroup.rotation.y = currentMouseX * 0.45;
+    headGroup.rotation.x = -currentMouseY * 0.25;
+
+    // Move eyes inside screen to look at cursor
+    eyeLeft.position.x = -0.32 + currentMouseX * 0.12;
+    eyeLeft.position.y = 0.02 + currentMouseY * 0.08;
+
+    eyeRight.position.x = 0.32 + currentMouseX * 0.12;
+    eyeRight.position.y = 0.02 + currentMouseY * 0.08;
+
+    renderer.render(scene, camera);
+  };
+
+  animate();
+}
