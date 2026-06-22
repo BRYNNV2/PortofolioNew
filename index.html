@@ -15,6 +15,7 @@
   <style type="text/tailwindcss">
     @custom-variant dark (&:where(.dark, .dark *));
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="antialiased">
@@ -419,11 +420,84 @@
       <a href="mailto:hello@mhmddfebry.com" class="btn-primary big">Send Message</a>
       <span class="tag"><span class="pulse"></span> Available for new projects</span>
     </div>
-    <footer class="footer">
-      <span>© 2026 Mhmddfebry</span>
-      <span>Programmer · 3D Animator · Designer</span>
-    </footer>
   </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="main-footer">
+    <!-- Huge background watermark text -->
+    <div class="footer-watermark">FEBRY SCRIPT</div>
+
+    <div class="footer-container">
+      <div class="footer-cols">
+        <!-- Column 1: Brand & Status -->
+        <div class="footer-col brand-col">
+          <h3 class="footer-brand">MHMDDFEBRY.</h3>
+          <p class="footer-desc">Between the lines of code, there's a story I want to tell – about the work that's never seen, but always felt.</p>
+          <div class="footer-status">
+            <span class="status-eyebrow">AVAILABLE FOR NEW</span>
+            <div class="status-badge">
+              <span class="status-dot"></span>
+              <span class="status-text">FREELANCE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: Navigation -->
+        <div class="footer-col nav-col">
+          <span class="col-title">NAVIGATION</span>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Projects</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Connect -->
+        <div class="footer-col connect-col">
+          <span class="col-title">CONNECT</span>
+          <div class="connect-info">
+            <a href="mailto:hello@mhmddfebry.com" class="connect-link">hello@mhmddfebry.com</a>
+            <span class="connect-phone">085156767900</span>
+          </div>
+          <div class="footer-socials">
+            <a href="#" class="social-icon-box" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="#" class="social-icon-box" aria-label="ArtStation">
+              <i class="fab fa-artstation"></i>
+            </a>
+            <a href="#" class="social-icon-box" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon-box" aria-label="Framer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; vertical-align: middle;">
+                <path d="M12 0L24 12H12L0 0H12ZM0 12L12 24V12H0ZM12 12L24 12V24L12 12Z"/>
+              </svg>
+            </a>
+            <a href="#" class="social-icon-box" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="social-icon-box" aria-label="TikTok">
+              <i class="fab fa-tiktok"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <!-- Bottom Row -->
+      <div class="footer-bottom">
+        <span class="copyright">© 2026 FEBRY. COPYRIGHT</span>
+        <div class="footer-policies">
+          <a href="#">PRIVACY</a>
+          <a href="#">TERMS</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
   <script src="app.js"></script>
