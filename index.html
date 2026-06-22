@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mhmddfebry — Full Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;500;900&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+  <script
+    src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.0/dist/index.global.js"
+    integrity="sha384-nWTzRTCY/9V4Bo352ehygr1c4cnst4XN6lMR3fipakEQrhVpc0hEM5Dii3Amz0sT"
+    crossorigin="anonymous"
+  ></script>
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, .dark *));
+  </style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="antialiased">
+
+  <!-- ===== NAV ===== -->
+  <header class="nav">
+    <a href="#home" class="nav-logo">MHMDDFEBRY<span class="dot">.</span></a>
+    <nav class="nav-links">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#work">Projects</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Let's Talk</a>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section id="home" class="hero">
+    <video class="hero-video" autoplay loop muted playsinline>
+      <source src="assets/herosection.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span>Available for New Projects</span>
+        <span class="hero-divider"></span>
+        <span>Indonesia · 2026</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="line">MHMDD</span>
+        <span class="line muted">FEBRY</span>
+      </h1>
+
+      <div class="hero-bottom">
+        <p class="hero-role">Programmer, 3D Animator, Staff Logistic</p>
+        <div class="hero-actions">
+          <a href="#work" class="btn-white">3D GALLERY &nbsp;→</a>
+          <a href="#contact" class="btn-outline">↓&nbsp; CV</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS BAR ===== -->
+  <div class="stats-bar">
+    <div class="stat"><strong>On</strong><span>Freelance</span></div>
+    <div class="stat"><strong>Ready</strong><span>For Projects</span></div>
+    <div class="stat"><strong>100%</strong><span>Trusted</span></div>
+  </div>
+
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>Development ✦ Branding ✦ Web Design ✦ 3D &amp; Motion ✦ UI/UX ✦&nbsp;</span>
+      <span>Development ✦ Branding ✦ Web Design ✦ 3D &amp; Motion ✦ UI/UX ✦&nbsp;</span>
+      <span>Development ✦ Branding ✦ Web Design ✦ 3D &amp; Motion ✦ UI/UX ✦&nbsp;</span>
+      <span>Development ✦ Branding ✦ Web Design ✦ 3D &amp; Motion ✦ UI/UX ✦&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ===== WORK ===== -->
+  <section id="work" class="section">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow has-line">Selected Works</span>
+      <h2 class="section-title">CREATIVE<br><span class="highlight">HIGHLIGHTS.</span></h2>
+      <a href="#contact" class="link-all">ALL PROJECTS &nbsp;→</a>
+    </div>
+
+    <div class="carousel">
+      <div class="carousel-track" id="workTrack">
+        <article class="work-card">
+          <a href="#contact" class="work-media"><img src="assets/project1.jpeg" alt="Kopi Nearme"><span class="work-num">01</span></a>
+          <div class="work-foot">
+            <div class="work-foot-text">
+              <h3>Kopi Nearme (Singapore)</h3>
+              <p>Full-scale development of a high-traffic interactive platform with dynamic CMS, bulk location management, and real-time tracking.</p>
+            </div>
+            <a href="#contact" class="work-arrow" aria-label="Open project">↗</a>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <a href="#contact" class="work-media"><img src="assets/project2.jpeg" alt="BAKIN Super Apps"><span class="work-num">02</span></a>
+          <div class="work-foot">
+            <div class="work-foot-text">
+              <h3>BAKIN — Banjarmasin Kini : UI/UX Super Apps</h3>
+              <p>A mobile-based Super Apps concept for public services with sleek glassmorphism UI/UX and smart-city features.</p>
+            </div>
+            <a href="#contact" class="work-arrow" aria-label="Open project">↗</a>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <a href="#contact" class="work-media"><img src="assets/project3.jpeg" alt="PT Sumber Sejahtera"><span class="work-num">03</span></a>
+          <div class="work-foot">
+            <div class="work-foot-text">
+              <h3>Company Profile — PT Sumber Sejahtera</h3>
+              <p>Built on Laravel 12 &amp; Filament with high-volume pharmaceutical catalog management and enterprise-grade security.</p>
+            </div>
+            <a href="#contact" class="work-arrow" aria-label="Open project">↗</a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="carousel-nav">
+      <div class="cnav-left">
+        <button class="cnav-btn" id="workPrev" aria-label="Previous">‹</button>
+        <div class="carousel-progress"><span id="workBar"></span></div>
+      </div>
+      <button class="cnav-btn" id="workNext" aria-label="Next">›</button>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services" class="section">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow has-line">What I Offer</span>
+      <h2 class="section-title">SPECIALIZED<br><span class="highlight">SOLUTIONS.</span></h2>
+      <p class="section-lead">I build digital solutions that simplify, streamline, and strengthen brands with precision and purpose.</p>
+    </div>
+
+    <div class="services-list">
+      <div class="service-row" data-reveal>
+        <span class="s-num">01</span>
+        <div class="service-info">
+          <h3>Deployment &amp; Hosting</h3>
+          <div class="service-desc">
+            <p>Professional deployment and server configuration services to ensure your application goes live securely and optimally across various..</p>
+          </div>
+        </div>
+        <a href="#contact" class="service-arrow" aria-label="Open service">↗</a>
+      </div>
+      <div class="service-row" data-reveal>
+        <span class="s-num">02</span>
+        <div class="service-info">
+          <h3>Maintenance &amp; Support</h3>
+          <div class="service-desc">
+            <p>Ongoing website maintenance, performance optimizations, and technical support to keep your product running smoothly.</p>
+          </div>
+        </div>
+        <a href="#contact" class="service-arrow" aria-label="Open service">↗</a>
+      </div>
+      <div class="service-row" data-reveal>
+        <span class="s-num">03</span>
+        <div class="service-info">
+          <h3>3D Animation</h3>
+          <div class="service-desc">
+            <p>High-quality visuals, smooth character movement, and immersive digital cinematography for engaging experiences.</p>
+          </div>
+        </div>
+        <a href="#contact" class="service-arrow" aria-label="Open service">↗</a>
+      </div>
+      <div class="service-row" data-reveal>
+        <span class="s-num">04</span>
+        <div class="service-info">
+          <h3>UI / UX Implementation</h3>
+          <div class="service-desc">
+            <p>Intuitive, attractive interfaces with a clear visual hierarchy built for seamless user experiences.</p>
+          </div>
+        </div>
+        <a href="#contact" class="service-arrow" aria-label="Open service">↗</a>
+      </div>
+      <div class="service-row" data-reveal>
+        <span class="s-num">05</span>
+        <div class="service-info">
+          <h3>Full Stack Web App</h3>
+          <div class="service-desc">
+            <p>End-to-end web apps: database design, Laravel APIs, and responsive React/Next.js frontends.</p>
+          </div>
+        </div>
+        <a href="#contact" class="service-arrow" aria-label="Open service">↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY ===== -->
+  <section id="why" class="section">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow has-line">Why Work With Me</span>
+      <h2 class="section-title">DRIVEN PURPOSE.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card" data-reveal><span class="why-num">01 ✦</span><h3>End-to-End Solution</h3><p>From design consultation to backend APIs and deployment — one comprehensive solution.</p></div>
+      <div class="why-card" data-reveal><span class="why-num">02 ✦</span><h3>Smooth Animations</h3><p>Purposeful animations using GSAP and Lottie for a premium feel without sacrificing speed.</p></div>
+      <div class="why-card" data-reveal><span class="why-num">03 ✦</span><h3>Modern Tech Stack</h3><p>Laravel, React.js, Next.js, Tailwind CSS, and GSAP.</p></div>
+      <div class="why-card" data-reveal><span class="why-num">04 ✦</span><h3>Performance Focused</h3><p>Optimized loading, lazy-loading and asset efficiency for fast, lightweight experiences.</p></div>
+      <div class="why-card" data-reveal><span class="why-num">05 ✦</span><h3>Responsive by Default</h3><p>Built mobile-first and fully responsive across every screen size.</p></div>
+      <div class="why-card" data-reveal><span class="why-num">06 ✦</span><h3>Clean &amp; Semantic Code</h3><p>Every line written to a high standard — clean, structured, and easy to maintain.</p></div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section about">
+    <div class="about-grid">
+      <div class="about-photo-wrapper" data-reveal>
+        <div class="photo-corner-topleft"></div>
+        <div class="about-photo">
+          <img src="assets/Profil.jpeg" alt="Profile">
+          <div class="about-badge">
+            <strong>READY</strong>
+            <span>FOR NEW PROJECTS</span>
+          </div>
+        </div>
+        <div class="about-photo-meta">
+          <div class="photo-meta-item">
+            <span>BASED IN</span>
+            <strong>Indonesia</strong>
+          </div>
+          <div class="photo-meta-item">
+            <span>STATUS</span>
+            <strong>Open to work</strong>
+          </div>
+        </div>
+      </div>
+      
+      <div class="about-text" data-reveal>
+        <div class="about-watermark">ABOUT</div>
+        <span class="eyebrow has-left-line">About Me</span>
+        <h2 class="section-title small">DESIGN, CODING,<br>3D ANIMATION.</h2>
+        <h3 class="about-sub">Full Stack Developer.</h3>
+        <p class="about-lead">Student. Logistics Practitioner. One person, many roles — all taken seriously.</p>
+        
+        <div class="about-info-grid">
+          <div class="info-grid-item">
+            <span>PHILOSOPHY</span>
+            <p>Form follows function, but emotion leads the way.</p>
+          </div>
+          <div class="info-grid-item">
+            <span>LOCATION</span>
+            <p>Working globally, based in Indonesia.</p>
+          </div>
+        </div>
+        
+        <a href="#contact" class="about-cta">
+          <span class="cta-arrow">↗</span>
+          <div class="cta-text">
+            <span>NEXT STEP</span>
+            <strong>Contact Me</strong>
+          </div>
+        </a>
+      </div>
+  </section>
+
+  <!-- ===== INSPIRATION ===== -->
+  <section id="inspiration" class="section">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow has-left-line">Self</span>
+      <h2 class="section-title">PURE<br><span class="highlight">INSPIRATION.</span></h2>
+      <p class="section-lead">A personal archive of soundscapes and cinematic frames that dictate the rhythm of my late-night creations.</p>
+    </div>
+
+    <div class="inspiration-group" data-reveal>
+      <h3 class="inspiration-subhead">MUSIC</h3>
+      <div class="music-grid">
+        <div class="music-card" data-title="Everybody's Fool" data-artist="Evanescence" data-cover="assets/music1.png">
+          <div class="music-cover-wrapper">
+            <img src="assets/music1.png" alt="Everybody's Fool">
+            <div class="music-play-overlay">
+              <button class="play-card-btn" aria-label="Play Everybody's Fool">
+                <span class="play-icon">▶</span>
+              </button>
+            </div>
+          </div>
+          <h4>Everybody's Fool</h4>
+          <p>Evanescence</p>
+        </div>
+        <div class="music-card" data-title="Desember" data-artist="Neck Deep" data-cover="assets/music2.png">
+          <div class="music-cover-wrapper">
+            <img src="assets/music2.png" alt="Desember">
+            <div class="music-play-overlay">
+              <button class="play-card-btn" aria-label="Play Desember">
+                <span class="play-icon">▶</span>
+              </button>
+            </div>
+          </div>
+          <h4>Desember</h4>
+          <p>Neck Deep</p>
+        </div>
+        <div class="music-card" data-title="33x" data-artist="Perunggu" data-cover="assets/music3.png">
+          <div class="music-cover-wrapper">
+            <img src="assets/music3.png" alt="33x">
+            <div class="music-play-overlay">
+              <button class="play-card-btn" aria-label="Play 33x">
+                <span class="play-icon">▶</span>
+              </button>
+            </div>
+          </div>
+          <h4>33x</h4>
+          <p>Perunggu</p>
+        </div>
+        <div class="music-card" data-title="Bunuh Idolamu" data-artist="Hindia" data-cover="assets/music4.png">
+          <div class="music-cover-wrapper">
+            <img src="assets/music4.png" alt="Bunuh Idolamu">
+            <div class="music-play-overlay">
+              <button class="play-card-btn" aria-label="Play Bunuh Idolamu">
+                <span class="play-icon">▶</span>
+              </button>
+            </div>
+          </div>
+          <h4>Bunuh Idolamu</h4>
+          <p>Hindia</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="inspiration-group" data-reveal>
+      <h3 class="inspiration-subhead">FILM</h3>
+      <div class="film-grid">
+        <div class="film-card">
+          <div class="film-poster-wrapper">
+            <img src="assets/film1.png" alt="Nobody">
+          </div>
+        </div>
+        <div class="film-card">
+          <div class="film-poster-wrapper">
+            <img src="assets/film2.png" alt="Wrath of Man">
+          </div>
+        </div>
+        <div class="film-card">
+          <div class="film-poster-wrapper">
+            <img src="assets/film3.png" alt="A Beautiful Mind">
+          </div>
+        </div>
+        <div class="film-card">
+          <div class="film-poster-wrapper">
+            <img src="assets/film4.png" alt="Single">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AUDIO FLOATING PILL (Bottom-Left) ===== -->
+  <div class="audio-pill-widget" id="audio-pill">
+    <div class="pill-info">
+      <img src="assets/music1.png" alt="Active Cover" id="pill-cover">
+      <div>
+        <strong id="pill-title">Everybody's Fool</strong>
+        <span id="pill-artist">Evanescence</span>
+      </div>
+    </div>
+    <button class="pill-trigger-btn" id="pill-trigger" aria-label="Open full player">
+      <span class="pill-play-icon">▶</span>
+    </button>
+  </div>
+
+  <!-- ===== AUDIO PLAYER PANEL (Right Side) ===== -->
+  <div class="audio-player-panel" id="audio-panel">
+    <div class="panel-header">
+      <div style="flex: 1; text-align: center;">
+        <span class="panel-eyebrow">— LISTENING —</span>
+      </div>
+      <div class="panel-header-btns">
+        <button class="panel-close-btn" id="panel-close" aria-label="Close player">✕</button>
+        <button class="panel-menu-btn" aria-label="Menu">☰</button>
+      </div>
+    </div>
+    <div class="panel-divider"></div>
+    <div class="panel-body">
+      <img src="assets/music1.png" alt="Active Cover" id="panel-cover" class="panel-cover-img">
+      <div class="panel-info">
+        <strong id="panel-title">Everybody's Fool</strong>
+        <span id="panel-artist">Evanescence</span>
+        
+        <div class="panel-progress-container">
+          <div class="panel-time-row">
+            <span id="panel-time-current">0:05</span>
+            <span id="panel-time-total">5:42</span>
+          </div>
+          <div class="panel-progress-bar">
+            <div class="panel-progress-fill" style="width: 15%;"></div>
+          </div>
+        </div>
+
+        <div class="panel-controls">
+          <button class="panel-btn" aria-label="Previous track">⏮</button>
+          <button class="panel-play-btn" id="panel-play-toggle" aria-label="Play/Pause">⏸</button>
+          <button class="panel-btn" aria-label="Stop">⏹</button>
+          <button class="panel-btn" aria-label="Next track">⏭</button>
+        </div>
+
+        <div class="panel-volume-container">
+          <span class="volume-icon">🔊</span>
+          <div class="panel-volume-bar">
+            <div class="panel-volume-fill" style="width: 70%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section contact">
+    <span class="eyebrow" data-reveal>Get In Touch</span>
+    <h2 class="contact-title" data-reveal>LET'S CONNECT.</h2>
+    <p class="contact-lead" data-reveal>Ready to start your next project? I am currently available for new opportunities.</p>
+    <div class="contact-actions" data-reveal>
+      <a href="mailto:hello@mhmddfebry.com" class="btn-primary big">Send Message</a>
+      <span class="tag"><span class="pulse"></span> Available for new projects</span>
+    </div>
+    <footer class="footer">
+      <span>© 2026 Mhmddfebry</span>
+      <span>Programmer · 3D Animator · Designer</span>
+    </footer>
+  </section>
+
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
